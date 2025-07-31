@@ -2,6 +2,7 @@ import os
 import sox
 import uuid
 from mutagen.mp3 import MP3
+from mutagen.wave import WAVE
 
 
 def adjust_speed(input_path: str, output_path: str, tempo: float) -> None:
@@ -19,6 +20,7 @@ def adjust_speed(input_path: str, output_path: str, tempo: float) -> None:
 
 
 def get_duration(path: str) -> float:
-    audio = MP3(path)
-    return audio.info.length
+    if str(path).endswith(".wav"):
+        return WAVE(path).info.length
+    return MP3(path).info.length
     # return sox.file_info.duration(path)
