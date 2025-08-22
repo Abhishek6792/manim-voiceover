@@ -17,7 +17,7 @@ try:
 except ImportError:
     logger.error(
         "Missing packages. "
-        'Run `pip install google-generativeai` to use GeminiTTSService.'
+        'Run `pip install google-genai` to use GeminiTTSService.'
     )
 
 load_dotenv(find_dotenv(usecwd=True))
